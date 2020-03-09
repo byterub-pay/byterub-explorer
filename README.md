@@ -1,11 +1,11 @@
-# MoneroV Explorer
+# ByteRub Explorer
 
-The source code used for the [monerovexplorer.com](https://monerovexplorer.com) website. An implementation of a MoneroV blockchain explorer.
-Currently connected to the upcoming monerov daemon and showcases the MoneroV 1:10 blockchain ratio diffrence for all previous and
+The source code used for the [byterubexplorer.com](https://byterubexplorer.com) website. An implementation of a ByteRub blockchain explorer.
+Currently connected to the upcoming byterub daemon and showcases the ByteRub 1:10 blockchain ratio diffrence for all previous and
 live transactions on Monero mainnet.
 
 
-## MoneroV Blockchain Explorer Features
+## ByteRub Blockchain Explorer Features
 
  - no javascript, no cookies, no web analytics trackers, no images,
  - open sourced,
@@ -13,9 +13,9 @@ live transactions on Monero mainnet.
  - showing encrypted payments ID,
  - showing ring signatures,
  - showing transaction extra field,
- - showing public components of MoneroV addresses,
- - decoding which outputs and mixins belong to the given MoneroV address and viewkey,
- - can prove that you sent MoneroV (XMV) to someone,
+ - showing public components of ByteRub addresses,
+ - decoding which outputs and mixins belong to the given ByteRub address and viewkey,
+ - can prove that you sent ByteRub (BTR) to someone,
  - detailed information about mixins, such as, mixins'
  age, timescale, mixin of mixins,
  - showing number of amount output indices,
@@ -25,14 +25,14 @@ live transactions on Monero mainnet.
  - decoding encrypted payment id.
  
 
-## Compilation on Ubuntu 16.04 (Will only be available When the monerov daemon is released to the public)
+## Compilation on Ubuntu 16.04 (Will only be available When the byterub daemon is released to the public)
 
-##### Compile latest MoneroV release v0.1
+##### Compile latest ByteRub release v0.1
 
-Download and compile recent MoneroV into your home folder:
+Download and compile recent ByteRub into your home folder:
 
 ```bash
-# first install monerov's dependecines
+# first install byterub's dependecines
 sudo apt update
 
 sudo apt install git build-essential cmake libboost-all-dev miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libcurl4-openssl-dev libgtest-dev libreadline-dev libzmq3-dev
@@ -40,10 +40,10 @@ sudo apt install git build-essential cmake libboost-all-dev miniupnpc libunbound
 # go to home folder 
 cd ~
 
-# clone the monerov daemon (when it's publicly available)
-git clone https://github.com/monerov/monerov
+# clone the byterub daemon (when it's publicly available)
+git clone https://github.com/byterub-pay/byterub
 
-cd monerov/
+cd byterub/
 
 
 make
@@ -51,18 +51,18 @@ make
 
 ##### Compile and run the explorer
 
-Once MoneroV compiles, the explorer can be downloaded and compiled
+Once ByteRub compiles, the explorer can be downloaded and compiled
 as follows:
 
 ```bash
-# go to home folder if you're still in ~/monerov
+# go to home folder if you're still in ~/byterub
 cd ~
 
 # download the source code
-git clone https://github.com/monerov/monerov-explorer.git
+git clone https://github.com/byterub-pay/byterub-explorer.git
 
 # enter the downloaded sourced code folder
-cd monerov-explorer
+cd byterub-explorer
 
 # make a build folder and enter it
 mkdir build && cd build
@@ -70,8 +70,8 @@ mkdir build && cd build
 # create the makefile
 cmake ..
 
-# altearnatively can use: cmake -DMONERO_DIR=/path/to/monerov_folder .. 
-# if monerov is not in ~/monerov
+# altearnatively can use: cmake -DMONERO_DIR=/path/to/byterub_folder .. 
+# if byterub is not in ~/byterub
 
 # compile
 make
@@ -87,12 +87,12 @@ To run it:
 ./xmrblocks
 ```
 
-By default it will look for blockchain in its default location i.e., `~/.monerov/lmdb`.
+By default it will look for blockchain in its default location i.e., `~/.byterub/lmdb`.
 You can use `--bc-path` option if its in different location. 
 Example output:
 
 ```bash
-[instanceme@monerov monerov-explorer]$ ./xmrblocks
+[instanceme@byterub byterub-explorer]$ ./xmrblocks
 2016-May-28 10:04:49.160280 Blockchain initialized. last block: 1056761, d0.h0.m12.s47 time ago, current difficulty: 1517857750
 (2016-05-28 02:04:49) [INFO    ] Crow/0.1 server is running, local port 8081
 ```
@@ -102,7 +102,7 @@ Go to your browser: http://127.0.0.1:8081
 ## The explorer's command line options
 
 ```
-xmrblocks, MoneroV Blockchain Explorer:
+xmrblocks, ByteRub Blockchain Explorer:
   -h [ --help ] [=arg(=1)] (=0)         produce help message
   -t [ --testnet ] [=arg(=1)] (=0)      use testnet blockchain
   --enable-pusher [=arg(=1)] (=0)       enable signed transaction pusher
@@ -123,7 +123,7 @@ xmrblocks, MoneroV Blockchain Explorer:
                                         enable users to have the index page on 
                                         autorefresh
   --enable-emission-monitor [=arg(=1)] (=0)
-                                        enable MoneroV total emission monitoring
+                                        enable ByteRub total emission monitoring
                                         thread
   -p [ --port ] arg (=8081)             default explorer port
   --testnet-url arg                     you can specify testnet url, if you run
@@ -139,29 +139,29 @@ xmrblocks, MoneroV Blockchain Explorer:
   --mempool-refresh-time arg (=5)       time, in seconds, for each refresh of 
                                         mempool state
   -b [ --bc-path ] arg                  path to lmdb folder of the blockchain, 
-                                        e.g., ~/.monerov/lmdb
+                                        e.g., ~/.byterub/lmdb
   --ssl-crt-file arg                    path to crt file for ssl (https) 
                                         functionality
   --ssl-key-file arg                    path to key file for ssl (https) 
                                         functionality
   -d [ --deamon-url ] arg (=http:://127.0.0.1:18081)
-                                        MoneroV deamon url
+                                        ByteRub deamon url
 ```
 
 Example usage, defined as bash aliases.
 
 ```bash
 # for mainnet explorer
-alias xmrblocksmainnet='~/monerov-explorer/build/xmrblocks    --port 8081 --testnet-url "http://122.112.5.45:8082" --enable-pusher --enable-emission-monitor'
+alias xmrblocksmainnet='~/byterub-explorer/build/xmrblocks    --port 8081 --testnet-url "http://122.112.5.45:8082" --enable-pusher --enable-emission-monitor'
 
 # for testnet explorer
-alias xmrblockstestnet='~/monerov-explorer/build/xmrblocks -t --port 8082 --mainnet-url "http://122.112.5.45:8081" --enable-pusher --enable-emission-monitor'
+alias xmrblockstestnet='~/byterub-explorer/build/xmrblocks -t --port 8082 --mainnet-url "http://122.112.5.45:8081" --enable-pusher --enable-emission-monitor'
 ```
 
 
-## Enable MoneroV emission 
+## Enable ByteRub emission 
 
-Obtaining current MoneroV emission amount is not straight forward. Thus, by default it is 
+Obtaining current ByteRub emission amount is not straight forward. Thus, by default it is 
 disabled. To enable it use `--enable-emission-monitor` flag, e.g., 
 
 
@@ -173,10 +173,10 @@ This flag will enable emission monitoring thread. When started, the thread
  will initially scan the entire blockchain, and calculate the cumulative emission based on each block.
 Since it is a separate thread, the explorer will work as usual during this time. 
 Every 10000 blocks, the thread will save current emission in a file, by default, 
- in `~/.monerov/lmdb/emission_amount.txt`. For testnet network, 
- it is `~/.monerov/testnet/lmdb/emission_amount.txt`. This file is used so that we don't
+ in `~/.byterub/lmdb/emission_amount.txt`. For testnet network, 
+ it is `~/.byterub/testnet/lmdb/emission_amount.txt`. This file is used so that we don't
  need to rescan entire blockchain whenever the explorer is restarted. When the 
- explorer restarts, the thread will first check if `~/.monerov/lmdb/emission_amount.txt`
+ explorer restarts, the thread will first check if `~/.byterub/lmdb/emission_amount.txt`
  is present, read its values, and continue from there if possible. Subsequently, only the initial
  use of the tread is time consuming. Once the thread scans the entire blockchain, it updates
  the emission amount using new blocks as they come. Since the explorer writes this file, there can
@@ -190,10 +190,10 @@ Every 10000 blocks, the thread will save current emission in a file, by default,
  displayed on the front page, e.g., :
  
 ```
-MoneroV emission (fees) is 144855404.30 (525453.73) as of 1313448 block
+ByteRub emission (fees) is 144855404.30 (525453.73) as of 1313448 block
 ```
 
-The values given, can be checked using MoneroV daemon's  `print_coinbase_tx_sum` command. 
+The values given, can be checked using ByteRub daemon's  `print_coinbase_tx_sum` command. 
 For example, for the above example: `print_coinbase_tx_sum 0 1313449`.
  
 To disable the monitor, simply restart the explorer without `--enable-emission-monitor` flag. 
@@ -488,7 +488,7 @@ For this, we use recipient's address and our tx private key as a viewkey value,
 Checking outputs:
 
 ```bash
-# we use here official MoneroV project's donation address as an example
+# we use here official ByteRub project's donation address as an example
 curl  -w "\n" -X GET "http://127.0.0.1:8081/api/outputs?txhash=17049bc5f2d9fbca1ce8dae443bbbbed2fc02f1ee003ffdd0571996905faa831&address=48kFo9fecQEW3Vz9XdpncuKrjNyKZSF5gLHAjmcoxmevJXBJB5EpV5b5SXf9EPyqGjVLziJVNvcAE93MEwMUzTicSfSqWrh&viewkey=f983431075708155cc3d92a32b75a7d02a5dcf27756707b47a2b31b21c389990&txprove=0"
 ```
 
@@ -695,7 +695,7 @@ var api_minor = response.data.api & 0xffff;
 
 #### api/rawblock/<block_number|block_hash>
 
-Return raw json block data, as represented in MoneroV.
+Return raw json block data, as represented in ByteRub.
 
 ```bash
 curl  -w "\n" -X GET "http://122.112.5.45:8081/api/rawblock/1293257"
@@ -705,7 +705,7 @@ Example result not shown.
 
 #### api/rawtransaction/<tx_hash>
 
-Return raw json tx data, as represented in MoneroV.
+Return raw json tx data, as represented in ByteRub.
 
 ```bash
 curl  -w "\n" -X GET "http://122.112.5.45:8081/api/rawtransaction/6093260dbe79fd6277694d14789dc8718f1bd54457df8bab338c2efa3bb0f03d"
